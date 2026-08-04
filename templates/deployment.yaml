@@ -58,10 +58,6 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command:
-          - /bin/registry
-          - serve
-          - {{ .Values.configPath }}/config.yml
           ports:
             - containerPort: 5000
             {{- if .Values.metrics.enabled }}
